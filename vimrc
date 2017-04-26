@@ -12,27 +12,25 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets' 
-Plugin 'Yggdroot/indentLine' " Display indention level
+Plugin 'scrooloose/nerdtree' " Sidebar
+Plugin 'kien/ctrlp.vim' " Fuzzy Searching
+Plugin 'kchmck/vim-coffee-script' " CoffeeScript colorscheme
 Plugin 'craigemery/vim-autotag' " Ctags
 Plugin 'tomtom/tcomment_vim' " Comment
-Plugin 'ervandew/supertab' " Tab completions
-
-" Ruby & Rails
-Plugin 'mattn/webapi-vim' " Web API
-Plugin 'mattn/emmet-vim' " Emmet
 Plugin 'tpope/vim-fugitive' " Git
 Plugin 'tpope/vim-bundler' " Bundler
 Plugin 'tpope/vim-rvm' " RVM
-Plugin 'tpope/vim-rails' " Rails power tool
 Plugin 'tpope/vim-surround' " Quote/Parenthesis
 Plugin 'tpope/vim-repeat' " Repeat vim-surround and more
+Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
+Plugin 'tpope/vim-endwise' "Wisely add 'end' in Ruby
+Plugin 'tpope/vim-rails' " Rails power tool
+Plugin 'ervandew/supertab' " Insert completion using Tab
+Plugin 'rstacruz/sparkup' " Emmet HTML
+" Plugin 'MarcWeber/vim-addon-mw-utils' " Snipmate dependency
+" Plugin 'tomtom/tlib_vim' " Snipmate dependency
+" Plugin 'garbas/vim-snipmate' " Textmate snippets
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,13 +56,13 @@ set scrolloff=2                   " minimum lines above/below cursor
 set laststatus=2                  " always show status bar
 
 set gfn=Monaco:h13
+set background=dark
+colorscheme solarized
 
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.vim/snippets.json')), "\n"))
 set autoread
 set autowrite
-set autoindent
 set si "smart indent"
-map <F7> mzgg=G`z " Reindentation
+map <F7> mzgg=G`z " Reindent whole file
 
 set nobackup
 set nowb
@@ -76,9 +74,7 @@ set directory=/tmp
 
 match ErrorMsg '\%>80v.\+'
 
-" indentLine
-let g:indentLine_color_term = 239
-let g:indent_guides_enable_on_vim_startup=1
-let g:indentLine_char = ':'
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '.'
+" Vim-Ruby options
+let g:ruby_indent_access_modifier_style = 'indent'
+let g:ruby_indent_block_style = 'expression'
+let g:ruby_indent_assignment_style = 'variable'
