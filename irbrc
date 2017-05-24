@@ -15,4 +15,9 @@ if defined? Rails
 		Hirb.enable
 	rescue LoadError
 	end
+else
+  require 'wirb'
+  require 'interactive_editor'
+
+  Wirb.start
 end

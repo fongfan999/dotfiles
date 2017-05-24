@@ -7,7 +7,7 @@ export ZSH=/Users/phong/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="spaceship"
 DEFAULT_USER=phong
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -100,3 +100,7 @@ alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
 
+alias vim="/usr/local/Cellar/vim/8.0.0586/bin/vim"
+alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
