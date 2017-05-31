@@ -10,27 +10,29 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree' " Sidebar
-Plugin 'kien/ctrlp.vim' " Fuzzy Searching
 Plugin 'kchmck/vim-coffee-script' " CoffeeScript colorscheme
 Plugin 'craigemery/vim-autotag' " Ctags
 Plugin 'tomtom/tcomment_vim' " Comment
 Plugin 'Townk/vim-autoclose' " Auto-close chars
+Plugin 'alvan/vim-closetag' " Auto-close HTML tags
 Plugin 'tpope/vim-fugitive' " Git
 Plugin 'tpope/vim-bundler' " Bundler
-Plugin 'tpope/vim-surround' " Quote/Parenthesis
+Plugin 'tpope/vim-surround' " Quoting/Parenthesizing
 Plugin 'tpope/vim-repeat' " Repeat vim-surround and more
-Plugin 'tpope/vim-endwise' " Wisely ad 'end'
-Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
 Plugin 'tpope/vim-rails' " Rails power tool
+Plugin 'tpope/vim-endwise' " Wisely add 'end'
+Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
 Plugin 'ervandew/supertab' " Insert completion using Tab
 Plugin 'rstacruz/sparkup' " Emmet HTML
-Plugin 'altercation/vim-colors-solarized' " Solarized colorscheme
 Plugin 'airblade/vim-gitgutter' " Git diff in the gutter
 Plugin 'vim-airline/vim-airline' " Status/tabline
-Plugin 'djoshea/vim-autoread', " Automatically reload a file
-Plugin 'vim-scripts/ReplaceWithRegister', " Replace text without visual mode
-Plugin 'vim-syntastic/syntastic' "  Syntax checkings
+Plugin 'djoshea/vim-autoread' " Automatically reload a file
+Plugin 'vim-scripts/ReplaceWithRegister' " Replace text without visual mode
+Plugin 'vim-syntastic/syntastic' " Syntax checking
+Plugin 'pangloss/vim-javascript' " Vim for Javascript
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
+Plugin 'gregsexton/MatchTag' " Match HTML tags
+Plugin 'chriskempson/base16-vim' " Base16 colorscheme
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,6 +59,8 @@ set list listchars=tab:»·,trail:· " display extra whitespace
 set backspace=indent,eol,start    " allow delete auto-indentaion
 set si                            " smart indent
 se mouse+=a                       " select only text without line numbers
+set foldmethod=syntax
+set foldlevel=1
 
 " yank to clipboard
 if has("clipboard")
@@ -68,8 +72,8 @@ if has("clipboard")
 endif
 
 set gfn=Monaco:h13
-set background=dark
-colorscheme solarized
+set background=light
+colorscheme base16-onedark
 
 set autoread
 set autowrite
@@ -105,6 +109,9 @@ command! QA qall
 command! E e
 command! W w
 command! Wq wq "
+
+" Auto-close HTML tags
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.html.erb"
 
 " Syntastic
 set statusline+=%#warningmsg#
