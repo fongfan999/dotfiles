@@ -7,10 +7,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim' " Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree' " Sidebar
-Plugin 'kchmck/vim-coffee-script' " CoffeeScript colorscheme
 Plugin 'craigemery/vim-autotag' " Ctags
 Plugin 'tomtom/tcomment_vim' " Comment
 Plugin 'Townk/vim-autoclose' " Auto-close chars
@@ -26,6 +24,7 @@ Plugin 'ervandew/supertab' " Insert completion using Tab
 Plugin 'rstacruz/sparkup' " Emmet HTML
 Plugin 'airblade/vim-gitgutter' " Git diff in the gutter
 Plugin 'vim-airline/vim-airline' " Status/tabline
+Plugin 'edkolev/tmuxline.vim' " Tmux airline
 Plugin 'djoshea/vim-autoread' " Automatically reload a file
 Plugin 'vim-scripts/ReplaceWithRegister' " Replace text without visual mode
 Plugin 'vim-syntastic/syntastic' " Syntax checking
@@ -33,6 +32,8 @@ Plugin 'pangloss/vim-javascript' " Vim for Javascript
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
 Plugin 'gregsexton/MatchTag' " Match HTML tags
 Plugin 'chriskempson/base16-vim' " Base16 colorscheme
+Plugin 'kchmck/vim-coffee-script' " Coffeescript colorscheme
+Plugin 'rizzatti/dash.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,6 +62,8 @@ set si                            " smart indent
 se mouse+=a                       " select only text without line numbers
 set foldmethod=syntax
 set foldlevel=1
+set autoread
+set autowrite
 
 " yank to clipboard
 if has("clipboard")
@@ -71,13 +74,11 @@ if has("clipboard")
   endif
 endif
 
-set gfn=Monaco:h13
-set background=light
+set background=dark
 colorscheme base16-onedark
 
-set autoread
-set autowrite
-map <F7> mzgg=G`z " Reindent whole file
+" Reindent whole file
+map <F7> mzgg=G`z
 
 set nobackup
 set nowb
@@ -86,11 +87,6 @@ set backupdir=~/tmp,/tmp
 set backupcopy=yes
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=/tmp
-
-" Vim-Ruby options
-let g:ruby_indent_access_modifier_style = 'indent'
-let g:ruby_indent_block_style = 'expression'
-let g:ruby_indent_assignment_style = 'variable'
 
 " Build current Ruby file
 command Rbrun execute ":w | :!ruby %"
@@ -103,12 +99,27 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " Key binding
-command! Q q " Bind :Q to :q
+command! Q q
 command! Qall qall
 command! QA qall
 command! E e
 command! W w
-command! Wq wq "
+command! Wq wq
+
+" Vim-Ruby options
+let g:ruby_indent_access_modifier_style = 'indent'
+let g:ruby_indent_block_style = 'expression'
+let g:ruby_indent_assignment_style = 'variable'
+
+" Tmuxline
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '',
+      \'y'    : '#(~/.tmux/plugins/itunes-tracker/script.sh)',
+      \'z'    : 'BAT #(~/.tmux/plugins/tmux-battery/scripts/battery_percentage.sh) | %I:%M, %b %d',
+      \'options' : {'status-justify': 'left'} }
 
 " Auto-close HTML tags
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js,*.html.erb"
