@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim' " Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree' " Sidebar
 Plugin 'craigemery/vim-autotag' " Ctags
 Plugin 'tomtom/tcomment_vim' " Comment
-Plugin 'Townk/vim-autoclose' " Auto-close chars
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'alvan/vim-closetag' " Auto-close HTML tags
 Plugin 'tpope/vim-fugitive' " Git
 Plugin 'tpope/vim-bundler' " Bundler
@@ -19,6 +19,7 @@ Plugin 'tpope/vim-surround' " Quoting/Parenthesizing
 Plugin 'tpope/vim-repeat' " Repeat vim-surround and more
 Plugin 'tpope/vim-rails' " Rails power tool
 Plugin 'tpope/vim-endwise' " Wisely add 'end'
+Plugin 'tpope/vim-cucumber' " Vim for Cucumber
 Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
 Plugin 'ervandew/supertab' " Insert completion using Tab
 Plugin 'rstacruz/sparkup' " Emmet HTML
@@ -33,7 +34,11 @@ Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
 Plugin 'gregsexton/MatchTag' " Match HTML tags
 Plugin 'chriskempson/base16-vim' " Base16 colorscheme
 Plugin 'kchmck/vim-coffee-script' " Coffeescript colorscheme
-Plugin 'rizzatti/dash.vim'
+Plugin 'rizzatti/dash.vim' " Dash plugin
+Plugin 'thoughtbot/vim-rspec' " Rspec
+Plugin 'vim-scripts/PreserveNoEOL' " Preserve missing EOL at the end of files
+Plugin 'yegappan/greplace' " Searching multiple files
+Plugin 'slim-template/vim-slim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,10 +65,14 @@ set list listchars=tab:»·,trail:· " display extra whitespace
 set backspace=indent,eol,start    " allow delete auto-indentaion
 set si                            " smart indent
 se mouse+=a                       " select only text without line numbers
-set foldmethod=syntax
 set foldlevel=1
 set autoread
 set autowrite
+set re=1
+
+set wrap
+set formatoptions-=t
+set textwidth=80
 
 " yank to clipboard
 if has("clipboard")
@@ -88,6 +97,9 @@ set backupcopy=yes
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=/tmp
 
+" set a map leader for more key combos
+let mapleader = ','
+
 " Build current Ruby file
 command Rbrun execute ":w | :!ruby %"
 map <F5> :Rbrun<CR>
@@ -110,6 +122,15 @@ command! Wq wq
 let g:ruby_indent_access_modifier_style = 'indent'
 let g:ruby_indent_block_style = 'expression'
 let g:ruby_indent_assignment_style = 'variable'
+
+" PreserveNoEOL
+let g:PreserveNoEOL = 1
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " Tmuxline
 let g:tmuxline_preset = {
@@ -134,6 +155,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_balloons = 1
-let g:syntastic_ignore_files = ['\m\c\.scss$', '\m\c\.sass$']
+let g:syntastic_ignore_files = ['\m\c\.scss$', '\m\c\.sass$', '\m\c\.feature$', '\m\c\.html.']
 
 autocmd BufWritePost * :SyntasticCheck
