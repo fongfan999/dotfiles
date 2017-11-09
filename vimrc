@@ -31,7 +31,6 @@ Plugin 'vim-scripts/ReplaceWithRegister' " Replace text without visual mode
 Plugin 'vim-syntastic/syntastic' " Syntax checking
 Plugin 'pangloss/vim-javascript' " Vim for Javascript
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
-Plugin 'gregsexton/MatchTag' " Match HTML tags
 Plugin 'chriskempson/base16-vim' " Base16 colorscheme
 Plugin 'kchmck/vim-coffee-script' " Coffeescript colorscheme
 Plugin 'rizzatti/dash.vim' " Dash plugin
@@ -119,7 +118,7 @@ command! W w
 command! Wq wq
 
 " Vim-Ruby options
-let g:ruby_indent_access_modifier_style = 'indent'
+let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_block_style = 'expression'
 let g:ruby_indent_assignment_style = 'variable'
 
@@ -156,5 +155,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_balloons = 1
 let g:syntastic_ignore_files = ['\m\c\.scss$', '\m\c\.sass$', '\m\c\.feature$', '\m\c\.html.']
+
+" React
+let g:jsx_ext_required = 0
 
 autocmd BufWritePost * :SyntasticCheck

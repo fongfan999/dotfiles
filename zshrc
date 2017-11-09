@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/phong/.oh-my-zsh
+export EDITOR=vim
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,6 +100,14 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
+
+alias gdp-staging='f() {
+  git fetch origin $1;
+  git checkout $1;
+  git pull origin $1;
+  git checkout staging;
+  git merge $1
+};f'
 
 alias vim="/usr/local/Cellar/vim/8.0.0586/bin/vim"
 alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
