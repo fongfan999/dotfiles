@@ -37,7 +37,8 @@ Plugin 'rizzatti/dash.vim' " Dash plugin
 Plugin 'thoughtbot/vim-rspec' " Rspec
 Plugin 'vim-scripts/PreserveNoEOL' " Preserve missing EOL at the end of files
 Plugin 'yegappan/greplace' " Searching multiple files
-Plugin 'slim-template/vim-slim'
+Plugin 'slim-template/vim-slim' " Vim for Ruby Slim
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy lookup
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -160,3 +161,24 @@ let g:syntastic_ignore_files = ['\m\c\.scss$', '\m\c\.sass$', '\m\c\.feature$', 
 let g:jsx_ext_required = 0
 
 autocmd BufWritePost * :SyntasticCheck
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+" `ag` with `CtrlP`
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+set list listchars=trail:.,extends:>
+autocmd FileWritePre * call TrimWhiteSpace()
+autocmd FileAppendPre * call TrimWhiteSpace()
+autocmd FilterWritePre * call TrimWhiteSpace()
+autocmd BufWritePre * call TrimWhiteSpace()

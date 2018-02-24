@@ -101,15 +101,21 @@ alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
 
-alias gdp-staging='f() {
-  git fetch origin $1;
-  git checkout $1;
-  git pull origin $1;
-  git checkout staging;
-  git merge $1
-};f'
+sw_david() {
+  git config user.name 'nusdavid'
+  git config user.email 'david@nustechnology.com'
+}
+alias david=sw_david
+
+sw_rick() {
+  git config user.name 'nusrick'
+  git config user.email 'rick@nustechnology.com'
+}
+alias rick=sw_rick
 
 alias vim="/usr/local/Cellar/vim/8.0.0586/bin/vim"
 alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
+
+alias skype="nohup sudo /Applications/Skype.app/Contents/MacOS/Skype"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
