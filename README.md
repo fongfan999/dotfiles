@@ -1,1 +1,1 @@
-# dotfiles
+This is my dotfiles on OSX. I'm working with Ruby and Rails
