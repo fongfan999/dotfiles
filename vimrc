@@ -19,10 +19,10 @@ Plugin 'tpope/vim-surround' " Quoting/Parenthesizing
 Plugin 'tpope/vim-repeat' " Repeat vim-surround and more
 Plugin 'tpope/vim-rails' " Rails power tool
 Plugin 'tpope/vim-endwise' " Wisely add 'end'
-Plugin 'tpope/vim-cucumber' " Vim for Cucumber
+" Plugin 'tpope/vim-cucumber' " Vim for Cucumber
 Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
 Plugin 'ervandew/supertab' " Insert completion using Tab
-Plugin 'rstacruz/sparkup' " Emmet HTML
+" Plugin 'rstacruz/sparkup' " Emmet HTML
 Plugin 'airblade/vim-gitgutter' " Git diff in the gutter
 Plugin 'vim-airline/vim-airline' " Status/tabline
 Plugin 'edkolev/tmuxline.vim' " Tmux airline
@@ -33,12 +33,13 @@ Plugin 'pangloss/vim-javascript' " Vim for Javascript
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
 Plugin 'chriskempson/base16-vim' " Base16 colorscheme
 Plugin 'kchmck/vim-coffee-script' " Coffeescript colorscheme
-Plugin 'rizzatti/dash.vim' " Dash plugin
+" Plugin 'rizzatti/dash.vim' " Dash plugin
 Plugin 'thoughtbot/vim-rspec' " Rspec
 Plugin 'vim-scripts/PreserveNoEOL' " Preserve missing EOL at the end of files
 Plugin 'yegappan/greplace' " Searching multiple files
 Plugin 'slim-template/vim-slim' " Vim for Ruby Slim
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy lookup
+Plugin 'wincent/terminus' " Toggle cursor
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,8 +84,12 @@ if has("clipboard")
   endif
 endif
 
+
+" UI
 set background=dark
 colorscheme base16-onedark
+set guifont=Meslo\ LG\ L\ DZ\ Regular\ for\ Powerline:h14
+set guioptions-=L " Hide scrollbar on NERDtree
 
 " Reindent whole file
 map <F7> mzgg=G`z
@@ -182,3 +187,6 @@ autocmd FileWritePre * call TrimWhiteSpace()
 autocmd FileAppendPre * call TrimWhiteSpace()
 autocmd FilterWritePre * call TrimWhiteSpace()
 autocmd BufWritePre * call TrimWhiteSpace()
+
+" Improve Ruby Slim performance
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
