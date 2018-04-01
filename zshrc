@@ -119,3 +119,6 @@ alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
 alias skype="nohup sudo /Applications/Skype.app/Contents/MacOS/Skype"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="/Users/phong/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
