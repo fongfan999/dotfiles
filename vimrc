@@ -19,10 +19,8 @@ Plugin 'tpope/vim-surround' " Quoting/Parenthesizing
 Plugin 'tpope/vim-repeat' " Repeat vim-surround and more
 Plugin 'tpope/vim-rails' " Rails power tool
 Plugin 'tpope/vim-endwise' " Wisely add 'end'
-" Plugin 'tpope/vim-cucumber' " Vim for Cucumber
 Plugin 'vim-ruby/vim-ruby' " Vim for Ruby
 Plugin 'ervandew/supertab' " Insert completion using Tab
-" Plugin 'rstacruz/sparkup' " Emmet HTML
 Plugin 'airblade/vim-gitgutter' " Git diff in the gutter
 Plugin 'vim-airline/vim-airline' " Status/tabline
 Plugin 'edkolev/tmuxline.vim' " Tmux airline
