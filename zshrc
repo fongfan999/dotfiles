@@ -113,6 +113,13 @@ sw_rick() {
 }
 alias rick=sw_rick
 
+sw_jack() {
+  git config user.name 'bitmega'
+  git config user.email 'jack@nustechnology.com'
+}
+alias jack=sw_jack
+
+
 alias vim="/usr/local/Cellar/vim/8.0.0586/bin/vim"
 alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
 
