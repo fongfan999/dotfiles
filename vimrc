@@ -31,7 +31,6 @@ Plugin 'pangloss/vim-javascript' " Vim for Javascript
 Plugin 'mxw/vim-jsx' " React JSX syntax highlighting
 Plugin 'chriskempson/base16-vim' " Base16 colorscheme
 Plugin 'kchmck/vim-coffee-script' " Coffeescript colorscheme
-" Plugin 'rizzatti/dash.vim' " Dash plugin
 Plugin 'thoughtbot/vim-rspec' " Rspec
 Plugin 'vim-scripts/PreserveNoEOL' " Preserve missing EOL at the end of files
 Plugin 'yegappan/greplace' " Searching multiple files
