@@ -101,6 +101,12 @@ alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
 
+sw_fongfan999() {
+  git config user.name 'Phong Phan'
+  git config user.email 'fongfan999@gmail.com'
+}
+alias fongfan999=sw_fongfan999
+
 sw_david() {
   git config user.name 'nusdavid'
   git config user.email 'david@nustechnology.com'
@@ -119,9 +125,10 @@ sw_jack() {
 }
 alias jack=sw_jack
 
+alias expose_server="ssh -R 80:localhost:3000 serveo.net"
 
-alias vim="/usr/local/Cellar/vim/8.0.0586/bin/vim"
-alias vi="/usr/local/Cellar/vim/8.0.0586/bin/vim"
+alias vim="/usr/local/Cellar/vim/8.0.1800/bin/vim"
+alias vi="/usr/local/Cellar/vim/8.0.1800/bin/vim"
 
 alias skype="nohup sudo /Applications/Skype.app/Contents/MacOS/Skype"
 
@@ -129,3 +136,4 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="/Users/phong/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export PATH="/usr/local/sbin:$PATH"
