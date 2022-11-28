@@ -107,24 +107,6 @@ sw_fongfan999() {
 }
 alias fongfan999=sw_fongfan999
 
-sw_david() {
-  git config user.name 'nusdavid'
-  git config user.email 'david@nustechnology.com'
-}
-alias david=sw_david
-
-sw_rick() {
-  git config user.name 'nusrick'
-  git config user.email 'rick@nustechnology.com'
-}
-alias rick=sw_rick
-
-sw_jack() {
-  git config user.name 'bitmega'
-  git config user.email 'jack@nustechnology.com'
-}
-alias jack=sw_jack
-
 alias expose_server="ssh -R 80:localhost:3000 serveo.net"
 
 alias vim="/usr/local/Cellar/vim/8.0.1800/bin/vim"
